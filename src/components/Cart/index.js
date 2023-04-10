@@ -1,16 +1,18 @@
+import styles from "./Cart.module.scss";
+
 function Cart() {
   return (
-    <div style={{ display: "none" }} className="overlay">
-      <div className="cart">
+    <div className={styles.overlay}>
+      <div className={styles.cart}>
         <h2 className="d-flex justify-between mb-30">
           Кошик <img className="cu-p" src="/img/btn-remove.svg" alt="Remove" />
         </h2>
 
-        <div className="items">
-          <div className="cartItem d-flex align-center mb-20">
+        <div className={styles.items}>
+          <div className={styles.cartItem}>
             <div
               style={{ backgroundImage: "url(/img/sneakers/1.png)" }}
-              className="cartItemImg"
+              className={styles.cartItemImg}
             ></div>
 
             <div className="mr-20 flex">
@@ -20,10 +22,10 @@ function Cart() {
             <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
           </div>
 
-          <div className="cartItem d-flex align-center mb-20">
+          <div className={styles.cartItem}>
             <div
               style={{ backgroundImage: "url(/img/sneakers/1.png)" }}
-              className="cartItemImg"
+              className={styles.cartItemImg}
             ></div>
 
             <div className="mr-20 flex">
@@ -33,10 +35,10 @@ function Cart() {
             <img className="removeBtn" src="/img/btn-remove.svg" alt="Remove" />
           </div>
 
-          <div className="cartItem d-flex align-center">
+          <div className={styles.cartItem}>
             <div
               style={{ backgroundImage: "url(/img/sneakers/1.png)" }}
-              className="cartItemImg"
+              className={styles.cartItemImg}
             ></div>
 
             <div className="mr-20 flex">
@@ -47,7 +49,7 @@ function Cart() {
           </div>
         </div>
 
-        <div className="cartTotalBlock">
+        <div className={styles.cartTotalBlock}>
           <ul>
             <li>
               <span>Всього:</span>
@@ -60,7 +62,7 @@ function Cart() {
               <b>1074 грн. </b>
             </li>
           </ul>
-          <button className="greenButton">
+          <button className={styles.greenButton}>
             Оформити замовлення <img src="/img/arrow.svg" alt="Arrow" />
           </button>
         </div>
