@@ -13,4 +13,14 @@ header {
   p {
     margin: 0;
   }
+
+  ul {
+    li {
+      line-height: 25px;
+      img {
+        display: inline-block;
+        vertical-align: bottom;
+      }
+    }
+  }
 }
