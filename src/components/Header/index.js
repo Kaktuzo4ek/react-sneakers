@@ -4,7 +4,7 @@ import styles from "./Header.module.scss";
 function Header(props) {
   return (
     <header className="d-flex justify-between align-center p-40">
-      <Link to="/" exact>
+      <Link to="/" exact="true">
         <div className={styles.headerLeft}>
           <img width={40} height={40} src="/img/logo.svg" alt="logo" />
           <div>

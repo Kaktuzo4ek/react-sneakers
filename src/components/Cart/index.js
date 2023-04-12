@@ -1,6 +1,41 @@
+import React from "react";
 import styles from "./Cart.module.scss";
+import Info from "../Info";
+import AppContext from "../../context";
+import axios from "axios";
+
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 function Cart({ onClose, onRemove, items = [] }) {
+  const { cartItems, setCartItems } = React.useContext(AppContext);
+  const [orderId, setOrderId] = React.useState(null);
+  const [isOrderComplete, setIsOrderComplete] = React.useState(false);
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const onClickMakeOrder = async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.post(
+        "https://6435ae47537112453fdcf3c2.mockapi.io/orders",
+        { items: cartItems }
+      );
+      setOrderId(data.id);
+      setIsOrderComplete(true);
+      setCartItems([]);
+      for (let i = 0; i < cartItems.length; i++) {
+        const item = cartItems[i];
+        await axios.delete(
+          `https://64353e4383a30bc9ad5b9347.mockapi.io/cart/${item.id}`
+        );
+        await delay(1000);
+      }
+    } catch (error) {
+      alert("Помилка при створенні замовлення :(");
+    }
+
+    setIsLoading(false);
+  };
+
   return (
     <div className={styles.overlay}>
       <div className={styles.cart}>
@@ -17,8 +52,8 @@ function Cart({ onClose, onRemove, items = [] }) {
         {items.length > 0 ? (
           <div className={styles.items}>
             {items.map((item) => (
-              <div>
-                <div key={item.id} className={styles.cartItem}>
+              <div key={item.id}>
+                <div className={styles.cartItem}>
                   <div
                     style={{ backgroundImage: `url(${item.imageUrl})` }}
                     className={styles.cartItemImg}
@@ -39,23 +74,19 @@ function Cart({ onClose, onRemove, items = [] }) {
             ))}
           </div>
         ) : (
-          <div className={styles.cartEmpty}>
-            <img
-              className="mb-20"
-              width="120px"
-              height="120px"
-              src="/img/empty-cart.jpg"
-              alt="Empty"
-            />
-            <h2>Кошик порожній</h2>
-            <p className="opacity-6">
-              Додайте хоча б одну пару кросівок, щоб здійснити замовлення.
-            </p>
-            <button onClick={onClose} className={styles.greenButton}>
-              <img src="/img/arrow.svg" alt="Arrow" />
-              Вернутися назад
-            </button>
-          </div>
+          <Info
+            imageUrl={
+              isOrderComplete
+                ? "/img/complete-order.jpg"
+                : "/img/empty-cart.jpg"
+            }
+            title={isOrderComplete ? "Замовлення оформлено!" : "Кошик порожній"}
+            description={
+              isOrderComplete
+                ? `Ваше замовлення #${orderId} незабаром буде передано кур'єрській службі доставки`
+                : "Додайте хоча б один товар, щоб оформити замовлення"
+            }
+          />
         )}
         {items.length > 0 && (
           <div className={styles.cartTotalBlock}>
@@ -71,7 +102,11 @@ function Cart({ onClose, onRemove, items = [] }) {
                 <b>1074 грн. </b>
               </li>
             </ul>
-            <button className={styles.greenButton}>
+            <button
+              disabled={isLoading}
+              className={styles.greenButton}
+              onClick={onClickMakeOrder}
+            >
               Оформити замовлення <img src="/img/arrow.svg" alt="Arrow" />
             </button>
           </div>

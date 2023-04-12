@@ -31,6 +31,45 @@
   }
 }
 
+.cartItem {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid #f3f3f3;
+  border-radius: 20px;
+  overflow: hidden;
+  padding: 20px;
+
+  .cartItemImg {
+    height: 70px;
+    width: 70px;
+    background-size: contain;
+    background-position: 0 -3px;
+    background-repeat: no-repeat;
+    margin-right: 20px;
+  }
+
+  p {
+    font-size: 16px;
+    margin: 0;
+  }
+
+  b {
+    font-size: 14px;
+  }
+
+  .removeBtn {
+    opacity: 0.5;
+    cursor: pointer;
+    transition: opacity 0.15s ease-in-out;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
 .cartEmpty {
   display: flex;
   align-items: center;
@@ -68,12 +107,10 @@
   ul {
     display: block;
     margin-bottom: 40px !important;
-
     li {
       display: flex;
       align-items: flex-end;
       margin-bottom: 20px;
-
       div {
         flex: 1;
         height: 1px;
@@ -84,16 +121,18 @@
       }
     }
   }
-
   .greenButton {
     position: relative;
+
+    &:disabled {
+      animation: buttton-loading 0.6s ease-in-out infinite;
+    }
 
     &:hover {
       img {
         transform: translateX(5px);
       }
     }
-
     img {
       position: absolute;
       right: 30px;
@@ -122,43 +161,21 @@
   &:active {
     background: darken(#9dd558, 5%);
   }
+
+  &:disabled {
+    background: #bebebe !important;
+    cursor: default;
+  }
 }
 
-.cartItem {
-  display: flex;
-  flex: 1;
-  align-items: center;
-  margin-bottom: 20px;
-  border: 1px solid #f3f3f3;
-  border-radius: 20px;
-  overflow: hidden;
-  padding: 20px;
-
-  .cartItemImg {
-    height: 70px;
-    width: 70px;
-    background-size: contain;
-    background-position: 0 -3px;
-    background-repeat: no-repeat;
-    margin-right: 20px;
+@keyframes button-loading {
+  0% {
+    opacity: 1;
   }
-
-  p {
-    font-size: 16px;
-    margin: 0;
+  50% {
+    opacity: 0.7;
   }
-
-  b {
-    font-size: 14px;
-  }
-
-  .removeBtn {
-    opacity: 0.5;
-    cursor: pointer;
-    transition: opacity 0.15s ease-in-out;
-
-    &:hover {
-      opacity: 1;
-    }
+  100% {
+    opacity: 1;
   }
 }
