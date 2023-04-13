@@ -33,8 +33,8 @@ function Card({ sneaker, onFavorite, onPlus, loading = false }) {
               <img
                 src={
                   isExistInFavorites(sneaker.gId)
-                    ? "/img/liked.svg"
-                    : "/img/unliked.svg"
+                    ? "img/liked.svg"
+                    : "img/unliked.svg"
                 }
                 alt="Unliked"
                 onClick={() => onFavorite(sneaker)}
@@ -60,8 +60,8 @@ function Card({ sneaker, onFavorite, onPlus, loading = false }) {
                 className={styles.plus}
                 src={
                   isExistInCart(sneaker.gId)
-                    ? "/img/btn-checked.svg"
-                    : "/img/btn-plus.svg"
+                    ? "img/btn-checked.svg"
+                    : "img/btn-plus.svg"
                 }
                 alt="Plus"
                 onClick={() => onPlus(sneaker)}

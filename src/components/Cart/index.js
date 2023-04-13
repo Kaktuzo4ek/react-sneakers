@@ -47,7 +47,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
           Кошик{" "}
           <img
             className="cu-p"
-            src="/img/btn-remove.svg"
+            src="img/btn-remove.svg"
             alt="Remove"
             onClick={onClose}
           />
@@ -69,7 +69,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
                   </div>
                   <img
                     className={styles.removeBtn}
-                    src="/img/btn-remove.svg"
+                    src="img/btn-remove.svg"
                     alt="Remove"
                     onClick={() => onRemove(item)}
                   />
@@ -80,9 +80,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
         ) : (
           <Info
             imageUrl={
-              isOrderComplete
-                ? "/img/complete-order.jpg"
-                : "/img/empty-cart.jpg"
+              isOrderComplete ? "img/complete-order.jpg" : "img/empty-cart.jpg"
             }
             title={isOrderComplete ? "Замовлення оформлено!" : "Кошик порожній"}
             description={
@@ -111,7 +109,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
               className={styles.greenButton}
               onClick={onClickMakeOrder}
             >
-              Оформити замовлення <img src="/img/arrow.svg" alt="Arrow" />
+              Оформити замовлення <img src="img/arrow.svg" alt="Arrow" />
             </button>
           </div>
         )}

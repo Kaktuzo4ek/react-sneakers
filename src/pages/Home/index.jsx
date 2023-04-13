@@ -41,7 +41,7 @@ function Home({
           {searchValue ? `Пошук по запиту: "${searchValue}"` : "Всі кросівки"}
         </h1>
         <div className={styles.searchBlock}>
-          <img src="/img/search.svg" alt="Search" />
+          <img src="img/search.svg" alt="Search" />
           <input
             value={searchValue}
             onChange={onChangeSearchInput}
@@ -50,7 +50,7 @@ function Home({
           {searchValue && (
             <img
               className={styles.clear}
-              src="/img/btn-remove.svg"
+              src="img/btn-remove.svg"
               alt="Remove"
               onClick={() => setSearchValue("")}
             />

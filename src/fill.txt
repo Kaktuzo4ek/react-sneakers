@@ -4,83 +4,83 @@
   "gId": "1",
   "title": "Чоловічі Кросівки Nike Blazer Mid Suede",
   "price": 12999,
-  "imageUrl": "/img/sneakers/1.png"
+  "imageUrl": "img/sneakers/1.png"
  },
  {
   "id": "2",
   "gId": "2",
   "title": "Чоловічі Кросівки Nike Air Max 270",
   "price": 15600,
-  "imageUrl": "/img/sneakers/2.png"
+  "imageUrl": "img/sneakers/2.png"
  },
  {
   "id": "3",
   "gId": "3",
   "title": "Чоловічі Кросівки Nike Blazer Mid Suede",
   "price": 8499,
-  "imageUrl": "/img/sneakers/3.png"
+  "imageUrl": "img/sneakers/3.png"
  },
  {
   "id": "4",
   "gId": "4",
   "title": "Кросівки Puma X Aka Boku Future Rider",
   "price": 8999,
-  "imageUrl": "/img/sneakers/4.png"
+  "imageUrl": "img/sneakers/4.png"
  },
  {
   "id": "5",
   "gId": "5",
   "title": "Чоловічі Кросівки Under Armour Curry 8",
   "price": 15199,
-  "imageUrl": "/img/sneakers/5.png"
+  "imageUrl": "img/sneakers/5.png"
  },
  {
   "id": "6",
   "gId": "6",
   "title": "Чоловічі Кросівки Nike Kyrie 7",
   "price": 11299,
-  "imageUrl": "/img/sneakers/6.png"
+  "imageUrl": "img/sneakers/6.png"
  },
  {
   "id": "7",
   "gId": "7",
   "title": "Чоловічі Кросівки Jordan Air Jordan 11",
   "price": 10799,
-  "imageUrl": "/img/sneakers/7.png"
+  "imageUrl": "img/sneakers/7.png"
  },
  {
   "id": "8",
   "gId": "8",
   "title": "Чоловічі Кросівки Nike LeBron XVIII",
   "price": 16499,
-  "imageUrl": "/img/sneakers/8.png"
+  "imageUrl": "img/sneakers/8.png"
  },
  {
   "id": "9",
   "gId": "9",
   "title": "Чоловічі Кросівки Nike Lebron XVIII Low",
   "price": 13999,
-  "imageUrl": "/img/sneakers/9.png"
+  "imageUrl": "img/sneakers/9.png"
  },
  {
   "id": "10",
   "gId": "10",
   "title": "Чоловічі Кросівки Nike Blazer Mid Suede",
   "price": 8499,
-  "imageUrl": "/img/sneakers/10.png"
+  "imageUrl": "img/sneakers/10.png"
  },
  {
   "id": "11",
   "gId": "11",
   "title": "Кросівки Aka Boku Future Rider",
   "price": 8999,
-  "imageUrl": "/img/sneakers/11.png"
+  "imageUrl": "img/sneakers/11.png"
  },
  {
   "id": "12",
   "gId": "12",
   "title": "Чоловічі Кросівки Nike Kyrie Flytrap IV",
   "price": 11299,
-  "imageUrl": "/img/sneakers/12.png"
+  "imageUrl": "img/sneakers/12.png"
  }
 ]
