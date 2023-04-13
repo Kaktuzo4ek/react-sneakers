@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import Header from "./components/Header";
@@ -134,11 +134,10 @@ function App() {
           opened={cartOpened}
         />
         <Header onClickCart={() => setCartOpened(true)} />
-
         <Routes>
           <Route
-            path="/"
-            exact="true"
+            path=""
+            exact
             element={
               <Home
                 sneakers={sneakers}
@@ -152,8 +151,8 @@ function App() {
               />
             }
           />
-          <Route path="/favorites" exact="true" element={<Favorites />} />
-          <Route path="/orders" exact="true" element={<Orders />} />
+          <Route path="favorites" exact element={<Favorites />} />
+          <Route path="orders" exact element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>
