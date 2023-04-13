@@ -1,16 +1,12 @@
 import React from "react";
-import styles from "./Card.module.scss";
-import ContentLoader from "react-content-loader";
 import classNames from "classnames";
+import ContentLoader from "react-content-loader";
+
 import AppContext from "../../context";
 
-function Card({
-  sneaker,
-  onFavorite,
-  onPlus,
-  favorited = false,
-  loading = false,
-}) {
+import styles from "./Card.module.scss";
+
+function Card({ sneaker, onFavorite, onPlus, loading = false }) {
   const { isExistInCart, isExistInFavorites } = React.useContext(AppContext);
 
   return (
@@ -32,17 +28,19 @@ function Card({
         </ContentLoader>
       ) : (
         <>
-          <div className={styles.favorite}>
-            <img
-              src={
-                isExistInFavorites(sneaker.id)
-                  ? "/img/liked.svg"
-                  : "/img/unliked.svg"
-              }
-              alt="Unliked"
-              onClick={() => onFavorite(sneaker)}
-            />
-          </div>
+          {onFavorite && (
+            <div className={styles.favorite}>
+              <img
+                src={
+                  isExistInFavorites(sneaker.gId)
+                    ? "/img/liked.svg"
+                    : "/img/unliked.svg"
+                }
+                alt="Unliked"
+                onClick={() => onFavorite(sneaker)}
+              />
+            </div>
+          )}
           <div className={styles.image}>
             <img
               width={133}
@@ -57,16 +55,18 @@ function Card({
               <span>Ціна:</span>
               <b>{sneaker.price} грн.</b>
             </div>
-            <img
-              className={styles.plus}
-              src={
-                isExistInCart(sneaker.id)
-                  ? "/img/btn-checked.svg"
-                  : "/img/btn-plus.svg"
-              }
-              alt="Plus"
-              onClick={() => onPlus(sneaker)}
-            />
+            {onPlus && (
+              <img
+                className={styles.plus}
+                src={
+                  isExistInCart(sneaker.gId)
+                    ? "/img/btn-checked.svg"
+                    : "/img/btn-plus.svg"
+                }
+                alt="Plus"
+                onClick={() => onPlus(sneaker)}
+              />
+            )}
           </div>
         </>
       )}

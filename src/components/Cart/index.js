@@ -1,13 +1,16 @@
 import React from "react";
-import styles from "./Cart.module.scss";
-import Info from "../Info";
-import AppContext from "../../context";
 import axios from "axios";
+import classNames from "classnames";
+
+import Info from "../Info";
+import { useCart } from "../../hooks/useCart";
+
+import styles from "./Cart.module.scss";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-function Cart({ onClose, onRemove, items = [] }) {
-  const { cartItems, setCartItems } = React.useContext(AppContext);
+function Cart({ onClose, onRemove, items = [], opened }) {
+  const { cartItems, setCartItems, totalPrice } = useCart();
   const [orderId, setOrderId] = React.useState(null);
   const [isOrderComplete, setIsOrderComplete] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(false);
@@ -23,21 +26,22 @@ function Cart({ onClose, onRemove, items = [] }) {
       setIsOrderComplete(true);
       setCartItems([]);
       for (let i = 0; i < cartItems.length; i++) {
-        const item = cartItems[i];
+        const id = cartItems.indexOf(cartItems[i]) + 1;
         await axios.delete(
-          `https://64353e4383a30bc9ad5b9347.mockapi.io/cart/${item.id}`
+          `https://64353e4383a30bc9ad5b9347.mockapi.io/cart/${id}`
         );
         await delay(1000);
       }
     } catch (error) {
       alert("Помилка при створенні замовлення :(");
+      console.error(error);
     }
 
     setIsLoading(false);
   };
 
   return (
-    <div className={styles.overlay}>
+    <div className={classNames(styles.overlay, { [styles.open]: opened })}>
       <div className={styles.cart}>
         <h2 className="d-flex justify-between mb-30">
           Кошик{" "}
@@ -67,7 +71,7 @@ function Cart({ onClose, onRemove, items = [] }) {
                     className={styles.removeBtn}
                     src="/img/btn-remove.svg"
                     alt="Remove"
-                    onClick={() => onRemove(item.id)}
+                    onClick={() => onRemove(item)}
                   />
                 </div>
               </div>
@@ -94,12 +98,12 @@ function Cart({ onClose, onRemove, items = [] }) {
               <li>
                 <span>Всього:</span>
                 <div></div>
-                <b>21 498 грн. </b>
+                <b>{totalPrice} грн. </b>
               </li>
               <li>
                 <span>Податок 5%:</span>
                 <div></div>
-                <b>1074 грн. </b>
+                <b>{(totalPrice / 100) * 5} грн. </b>
               </li>
             </ul>
             <button

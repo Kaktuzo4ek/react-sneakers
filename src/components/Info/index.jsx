@@ -1,6 +1,8 @@
 import React from "react";
-import styles from "./info.module.scss";
+
 import AppContext from "../../context";
+
+import styles from "./info.module.scss";
 
 const Info = ({ imageUrl, title, description }) => {
   const { setCartOpened } = React.useContext(AppContext);

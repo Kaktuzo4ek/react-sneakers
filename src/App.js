@@ -1,12 +1,13 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import axios from "axios";
+
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import AppContext from "./context";
-
-import axios from "axios";
+import Orders from "./pages/Orders";
 
 function App() {
   const [sneakers, setSneakers] = React.useState([]);
@@ -18,54 +19,75 @@ function App() {
 
   React.useEffect(() => {
     async function fetchData() {
-      setIsLoading(true);
-      const favoritesResponse = await axios.get(
-        "https://6435ae47537112453fdcf3c2.mockapi.io/favorites"
-      );
+      try {
+        setIsLoading(true);
+        const favoritesResponse = await axios.get(
+          "https://6435ae47537112453fdcf3c2.mockapi.io/favorites"
+        );
 
-      const cartResponse = await axios.get(
-        "https://64353e4383a30bc9ad5b9347.mockapi.io/cart"
-      );
+        const cartResponse = await axios.get(
+          "https://64353e4383a30bc9ad5b9347.mockapi.io/cart"
+        );
 
-      const sneakersResponse = await axios.get(
-        "https://64353e4383a30bc9ad5b9347.mockapi.io/sneakers"
-      );
+        const sneakersResponse = await axios.get(
+          "https://64353e4383a30bc9ad5b9347.mockapi.io/sneakers"
+        );
 
-      setFavorites(favoritesResponse.data);
-      setCartItems(cartResponse.data);
-      setSneakers(sneakersResponse.data);
-      setIsLoading(false);
+        setFavorites(favoritesResponse.data);
+        setCartItems(cartResponse.data);
+        setSneakers(sneakersResponse.data);
+        setIsLoading(false);
+      } catch (error) {
+        alert("Помилка при завантаженні даних!");
+        console.error(error);
+      }
     }
 
     fetchData();
   }, []);
 
-  const onAddToCart = (obj) => {
-    if (cartItems.find((item) => item.id === obj.id)) {
-      axios.delete(
-        `https://64353e4383a30bc9ad5b9347.mockapi.io/cart/${obj.id}`
-      );
-      setCartItems((prev) => prev.filter((item) => item.id !== obj.id));
-    } else {
-      axios.post("https://64353e4383a30bc9ad5b9347.mockapi.io/cart", obj);
-      setCartItems((prev) => [...prev, obj]);
+  const onAddToCart = async (obj) => {
+    try {
+      const findItem = cartItems.find((item) => item.gId === obj.gId);
+      if (findItem) {
+        setCartItems((prev) => prev.filter((item) => item.gId !== obj.gId));
+        axios.delete(
+          `https://64353e4383a30bc9ad5b9347.mockapi.io/cart/${findItem.id}`
+        );
+      } else {
+        const { data } = await axios.post(
+          "https://64353e4383a30bc9ad5b9347.mockapi.io/cart",
+          obj
+        );
+        setCartItems((prev) => [...prev, data]);
+      }
+    } catch (error) {
+      alert("Помилка при додаванні товару в кошик!");
+      console.error(error);
     }
   };
 
-  const onRemoveFromCart = (id) => {
-    axios.delete(`https://64353e4383a30bc9ad5b9347.mockapi.io/cart/${id}`);
-    setCartItems((prev) => prev.filter((item) => item.id !== id));
+  const onRemoveFromCart = (obj) => {
+    try {
+      setCartItems((prev) => prev.filter((item) => item.gId !== obj.gId));
+      const id = cartItems.find((item) => item.gId === obj.gId).id;
+      console.log(id);
+      axios.delete(`https://64353e4383a30bc9ad5b9347.mockapi.io/cart/${id}`);
+    } catch (error) {
+      alert("Помилка при видаленн товару!");
+      console.error(error);
+    }
   };
 
   const onAddToFavorite = async (obj) => {
     try {
-      if (favorites.find((f) => f.id === obj.id)) {
+      setFavorites((prev) => prev.filter((item) => item.gId !== obj.gId));
+      const findItem = favorites.find((item) => item.gId === obj.gId);
+      if (findItem) {
         axios.delete(
-          `https://6435ae47537112453fdcf3c2.mockapi.io/favorites/${obj.id}`
+          `https://6435ae47537112453fdcf3c2.mockapi.io/favorites/${findItem.id}`
         );
-        setFavorites((prev) => prev.filter((item) => item.id !== obj.id));
       } else {
-        console.log(obj);
         const { data } = await axios.post(
           "https://6435ae47537112453fdcf3c2.mockapi.io/favorites",
           obj
@@ -74,6 +96,7 @@ function App() {
       }
     } catch (error) {
       alert("Не вдалося добавити в закладки");
+      console.error(error);
     }
   };
 
@@ -82,11 +105,11 @@ function App() {
   };
 
   const isExistInCart = (id) => {
-    return cartItems.some((item) => item.id === id);
+    return cartItems.some((item) => item.gId === id);
   };
 
   const isExistInFavorites = (id) => {
-    return favorites.some((item) => item.id === id);
+    return favorites.some((item) => item.gId === id);
   };
 
   return (
@@ -97,19 +120,19 @@ function App() {
         favorites,
         isExistInCart,
         isExistInFavorites,
+        onAddToCart,
         onAddToFavorite,
         setCartOpened,
         setCartItems,
       }}
     >
       <div className="wrapper clear">
-        {cartOpened && (
-          <Cart
-            items={cartItems}
-            onRemove={onRemoveFromCart}
-            onClose={() => setCartOpened(false)}
-          />
-        )}
+        <Cart
+          items={cartItems}
+          onRemove={onRemoveFromCart}
+          onClose={() => setCartOpened(false)}
+          opened={cartOpened}
+        />
         <Header onClickCart={() => setCartOpened(true)} />
 
         <Routes>
@@ -130,6 +153,7 @@ function App() {
             }
           />
           <Route path="/favorites" exact="true" element={<Favorites />} />
+          <Route path="/orders" exact="true" element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>
