@@ -3,6 +3,8 @@ import React from "react";
 import Card from "../../components/Card";
 
 import styles from "./home.module.scss";
+import searchIcon from "../../assets/img/search.svg";
+import removeIcon from "../../assets/img/btn-remove.svg";
 
 function Home({
   sneakers,
@@ -41,7 +43,7 @@ function Home({
           {searchValue ? `Пошук по запиту: "${searchValue}"` : "Всі кросівки"}
         </h1>
         <div className={styles.searchBlock}>
-          <img src="img/search.svg" alt="Search" />
+          <img src={searchIcon} alt="Search" />
           <input
             value={searchValue}
             onChange={onChangeSearchInput}
@@ -50,7 +52,7 @@ function Home({
           {searchValue && (
             <img
               className={styles.clear}
-              src="img/btn-remove.svg"
+              src={removeIcon}
               alt="Remove"
               onClick={() => setSearchValue("")}
             />

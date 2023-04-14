@@ -6,6 +6,10 @@ import Info from "../Info";
 import { useCart } from "../../hooks/useCart";
 
 import styles from "./Cart.module.scss";
+import removeIcon from "../../assets/img/btn-remove.svg";
+import emptyCartIcon from "../../assets/img/empty-cart.jpg";
+import completedOrderIcon from "../../assets/img/complete-order.jpg";
+import arrowIcon from "../../assets/img/arrow.svg";
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
@@ -47,7 +51,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
           Кошик{" "}
           <img
             className="cu-p"
-            src="img/btn-remove.svg"
+            src={removeIcon}
             alt="Remove"
             onClick={onClose}
           />
@@ -69,7 +73,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
                   </div>
                   <img
                     className={styles.removeBtn}
-                    src="img/btn-remove.svg"
+                    src={removeIcon}
                     alt="Remove"
                     onClick={() => onRemove(item)}
                   />
@@ -79,9 +83,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
           </div>
         ) : (
           <Info
-            imageUrl={
-              isOrderComplete ? "img/complete-order.jpg" : "img/empty-cart.jpg"
-            }
+            imageUrl={isOrderComplete ? completedOrderIcon : emptyCartIcon}
             title={isOrderComplete ? "Замовлення оформлено!" : "Кошик порожній"}
             description={
               isOrderComplete
@@ -109,7 +111,7 @@ function Cart({ onClose, onRemove, items = [], opened }) {
               className={styles.greenButton}
               onClick={onClickMakeOrder}
             >
-              Оформити замовлення <img src="img/arrow.svg" alt="Arrow" />
+              Оформити замовлення <img src={arrowIcon} alt="Arrow" />
             </button>
           </div>
         )}

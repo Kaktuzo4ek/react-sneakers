@@ -5,6 +5,10 @@ import ContentLoader from "react-content-loader";
 import AppContext from "../../context";
 
 import styles from "./Card.module.scss";
+import likedIcon from "../../assets/img/liked.svg";
+import unlikedIcon from "../../assets/img/unliked.svg";
+import checkedIcon from "../../assets/img/btn-checked.svg";
+import plusIcon from "../../assets/img/btn-plus.svg";
 
 function Card({ sneaker, onFavorite, onPlus, loading = false }) {
   const { isExistInCart, isExistInFavorites } = React.useContext(AppContext);
@@ -31,12 +35,8 @@ function Card({ sneaker, onFavorite, onPlus, loading = false }) {
           {onFavorite && (
             <div className={styles.favorite}>
               <img
-                src={
-                  isExistInFavorites(sneaker.gId)
-                    ? "img/liked.svg"
-                    : "img/unliked.svg"
-                }
-                alt="Unliked"
+                src={isExistInFavorites(sneaker.gId) ? likedIcon : unlikedIcon}
+                alt="Unliked/liked"
                 onClick={() => onFavorite(sneaker)}
               />
             </div>
@@ -58,11 +58,7 @@ function Card({ sneaker, onFavorite, onPlus, loading = false }) {
             {onPlus && (
               <img
                 className={styles.plus}
-                src={
-                  isExistInCart(sneaker.gId)
-                    ? "img/btn-checked.svg"
-                    : "img/btn-plus.svg"
-                }
+                src={isExistInCart(sneaker.gId) ? checkedIcon : plusIcon}
                 alt="Plus"
                 onClick={() => onPlus(sneaker)}
               />

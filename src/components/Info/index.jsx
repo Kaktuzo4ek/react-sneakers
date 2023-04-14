@@ -3,6 +3,7 @@ import React from "react";
 import AppContext from "../../context";
 
 import styles from "./info.module.scss";
+import arrowIcon from "../../assets/img/arrow.svg";
 
 const Info = ({ imageUrl, title, description }) => {
   const { setCartOpened } = React.useContext(AppContext);
@@ -16,7 +17,7 @@ const Info = ({ imageUrl, title, description }) => {
         onClick={() => setCartOpened(false)}
         className={styles.greenButton}
       >
-        <img src="img/arrow.svg" alt="Arrow" />
+        <img src={arrowIcon} alt="Arrow" />
         Вернутися назад
       </button>
     </div>
