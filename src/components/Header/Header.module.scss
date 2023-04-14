@@ -3,6 +3,7 @@ header {
 
   .headerLeft {
     display: flex;
+    cursor: pointer;
   }
 
   img {
@@ -21,6 +22,24 @@ header {
         display: inline-block;
         vertical-align: bottom;
       }
+    }
+  }
+
+  ul.hamburger {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  ul {
+    display: none !important;
+  }
+  ul.hamburger {
+    cursor: pointer;
+    display: block !important;
+    li img {
+      width: 40px;
+      height: 40px;
     }
   }
 }

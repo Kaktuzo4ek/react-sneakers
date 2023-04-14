@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import axios from "axios";
 
 import Header from "./components/Header";
@@ -8,6 +8,7 @@ import Home from "./pages/Home";
 import Favorites from "./pages/Favorites";
 import AppContext from "./context";
 import Orders from "./pages/Orders";
+import Navigation from "./components/Navigation";
 
 function App() {
   const [sneakers, setSneakers] = React.useState([]);
@@ -15,6 +16,7 @@ function App() {
   const [favorites, setFavorites] = React.useState([]);
   const [searchValue, setSearchValue] = React.useState("");
   const [cartOpened, setCartOpened] = React.useState(false);
+  const [navOpened, setNavOpened] = React.useState(false);
   const [isLoading, setIsLoading] = React.useState(true);
 
   React.useEffect(() => {
@@ -133,10 +135,19 @@ function App() {
           onClose={() => setCartOpened(false)}
           opened={cartOpened}
         />
-        <Header onClickCart={() => setCartOpened(true)} />
+        <Header
+          onClickCart={() => setCartOpened(true)}
+          onClickNav={() => setNavOpened(true)}
+        />
+        <Navigation
+          opened={navOpened}
+          onClose={() => setNavOpened(false)}
+          onClickCart={() => setCartOpened(true)}
+        />
+
         <Routes>
           <Route
-            path=""
+            path="/"
             exact
             element={
               <Home
@@ -151,8 +162,8 @@ function App() {
               />
             }
           />
-          <Route path="favorites" exact element={<Favorites />} />
-          <Route path="orders" exact element={<Orders />} />
+          <Route path="/favorites" exact element={<Favorites />} />
+          <Route path="/orders" exact element={<Orders />} />
         </Routes>
       </div>
     </AppContext.Provider>
