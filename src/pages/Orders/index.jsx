@@ -25,7 +25,7 @@ function Orders() {
   }, []);
 
   return (
-    <div className="content p-40">
+    <div className={styles.content}>
       <div className="d-flex align-center justify-between mb-20">
         <h1>Мої замовлення</h1>
       </div>

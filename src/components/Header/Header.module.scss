@@ -15,7 +15,8 @@ header {
     margin: 0;
   }
 
-  ul {
+  ul.navigation {
+    display: flex;
     li {
       line-height: 25px;
       img {
@@ -31,7 +32,7 @@ header {
 }
 
 @media screen and (max-width: 600px) {
-  ul {
+  ul.navigation {
     display: none !important;
   }
   ul.hamburger {

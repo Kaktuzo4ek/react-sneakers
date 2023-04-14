@@ -50,6 +50,7 @@ $medium: 900px;
   .container {
     h1 {
       width: 100%;
+      overflow-wrap: break-word;
     }
     .searchBlock {
       width: 100%;

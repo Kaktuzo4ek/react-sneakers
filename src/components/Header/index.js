@@ -24,7 +24,7 @@ function Header({ onClickCart, onClickNav }) {
           <p className="opacity-5">Магазин кращих кросівок</p>
         </div>
       </div>
-      <ul className="d-flex">
+      <ul className={styles.navigation}>
         <li className="mr-20 cu-p" onClick={onClickCart}>
           <img width={25} height={25} src={cartIcon} alt="cart" />
           <span>{totalPrice} грн.</span>

@@ -24,7 +24,7 @@ function Navigation({ onClose, opened, onClickCart }) {
   };
 
   return (
-    <div className={classNames(styles.wrapper, { [styles.open]: opened })}>
+    <div className={classNames(styles.navWrapper, { [styles.open]: opened })}>
       <div className={styles.close}>
         <img className="cu-p" src={removeIcon} alt="Remove" onClick={onClose} />
       </div>

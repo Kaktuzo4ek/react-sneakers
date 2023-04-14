@@ -1,5 +1,21 @@
+.content {
+  padding: 40px;
+}
+
 .order {
   text-align: start;
   display: flex;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 550px) {
+  .order {
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .content {
+    height: 100vh;
+  }
 }

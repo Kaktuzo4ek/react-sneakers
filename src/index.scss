@@ -16,13 +16,22 @@ body {
   border-radius: 20px;
   max-width: 1080px;
   margin: 50px auto;
+  overflow-x: hidden;
 }
 
 @media screen and (max-width: 600px) {
   .wrapper {
     margin: 0;
     border-radius: 0;
-    min-width: 100vw;
-    min-height: 100vh;
+    width: 100vw;
+    height: 100vh;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .wrapper {
+    margin: 0;
+    width: 100vw;
+    border-radius: 0;
   }
 }
