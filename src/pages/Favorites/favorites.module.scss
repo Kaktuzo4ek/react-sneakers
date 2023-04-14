@@ -16,8 +16,15 @@
   }
 }
 
+@media screen and (max-width: 600px) {
+  .content {
+    min-height: 100vh;
+    padding-bottom: 150px;
+  }
+}
+
 @media screen and (max-width: 1200px) {
   .content {
-    height: 100vh;
+    min-height: 100vh;
   }
 }
