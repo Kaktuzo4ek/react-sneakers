@@ -4,83 +4,83 @@
   "gId": "1",
   "title": "Чоловічі Кросівки Nike Blazer Mid Suede",
   "price": 12999,
-  "imageUrl": "img/sneakers/1.png"
+  "imageUrl": "https://img.eobuwie.cloud/eob_product_656w_656h(c/a/c/7/cac71587722cae22fa7455ff95b6974e0e56da3b_0000209592498_01_rz.jpg,jpg)/vzuttia-nike-blazer-mid-77-suede-ci1172-301-pine-green-white-pine-green.jpg"
  },
  {
   "id": "2",
   "gId": "2",
   "title": "Чоловічі Кросівки Nike Air Max 270",
   "price": 15600,
-  "imageUrl": "img/sneakers/2.png"
+  "imageUrl": "https://distance.com.ua/image//data/product/ah8050-100/krosivki-cholovichi-nike-air-max-270-ah8050-100_1.jpg"
  },
  {
   "id": "3",
   "gId": "3",
   "title": "Чоловічі Кросівки Nike Blazer Mid Suede",
   "price": 8499,
-  "imageUrl": "img/sneakers/3.png"
+  "imageUrl": "https://formas.com.ua/image/catalog/7dreamsport/fotosp/ci1172-004-20.jpg"
  },
  {
   "id": "4",
   "gId": "4",
   "title": "Кросівки Puma X Aka Boku Future Rider",
   "price": 8999,
-  "imageUrl": "img/sneakers/4.png"
+  "imageUrl": "https://sneakerstudio.com.ua/ukr_pl_CHOLOVICHI-KROSIVKI-Puma-Future-Rider-Aka-Boku-380169-01-1024891_5.jpg"
  },
  {
   "id": "5",
   "gId": "5",
   "title": "Чоловічі Кросівки Under Armour Curry 8",
   "price": 15199,
-  "imageUrl": "img/sneakers/5.png"
+  "imageUrl": "https://images.prom.ua/3145209564_w640_h640_muzhskie-krossovki-under.jpg"
  },
  {
   "id": "6",
   "gId": "6",
   "title": "Чоловічі Кросівки Nike Kyrie 7",
   "price": 11299,
-  "imageUrl": "img/sneakers/6.png"
+  "imageUrl": "https://images.prom.ua/3171447731_cholovichi-krosivki-nike.jpg"
  },
  {
   "id": "7",
   "gId": "7",
   "title": "Чоловічі Кросівки Jordan Air Jordan 11",
   "price": 10799,
-  "imageUrl": "img/sneakers/7.png"
+  "imageUrl": "https://tapok.com.ua/products/0/39/08/2/39082/384440_middle_long.jpeg"
  },
  {
   "id": "8",
   "gId": "8",
   "title": "Чоловічі Кросівки Nike LeBron XVIII",
   "price": 16499,
-  "imageUrl": "img/sneakers/8.png"
+  "imageUrl": "https://tapok.com.ua/products/0/52/69/8/52698/437301_middle_long.jpg"
  },
  {
   "id": "9",
   "gId": "9",
   "title": "Чоловічі Кросівки Nike Lebron XVIII Low",
   "price": 13999,
-  "imageUrl": "img/sneakers/9.png"
+  "imageUrl": "https://estafeta.com.ua/imgs/b644436.jpg"
  },
  {
   "id": "10",
   "gId": "10",
   "title": "Чоловічі Кросівки Nike Blazer Mid Suede",
   "price": 8499,
-  "imageUrl": "img/sneakers/10.png"
+  "imageUrl": "https://www.trops.com.ua/wp-content/uploads/2022/02/BQ6806_002_e.jpg"
  },
  {
   "id": "11",
   "gId": "11",
   "title": "Кросівки Aka Boku Future Rider",
   "price": 8999,
-  "imageUrl": "img/sneakers/11.png"
+  "imageUrl": "https://images.puma.com/image/upload/f_auto,q_auto,b_rgb:fafafa/global/380169/01/fnd/UKR/w/1000/h/1000/fmt/png"
  },
  {
   "id": "12",
   "gId": "12",
   "title": "Чоловічі Кросівки Nike Kyrie Flytrap IV",
   "price": 11299,
-  "imageUrl": "img/sneakers/12.png"
+  "imageUrl": "https://deltasport.ua/upload/iblock/cf2/CT1972_001_e.jpg"
  }
 ]

@@ -9,6 +9,7 @@ import Favorites from "./pages/Favorites";
 import AppContext from "./context";
 import Orders from "./pages/Orders";
 import Navigation from "./components/Navigation";
+import image from "./a";
 
 function App() {
   const [sneakers, setSneakers] = React.useState([]);
