@@ -43,9 +43,6 @@
   }
 } //content
 
-$small: 300px;
-$medium: 900px;
-
 @media screen and (max-width: 600px) {
   .container {
     h1 {
@@ -55,5 +52,8 @@ $medium: 900px;
     .searchBlock {
       width: 100%;
     }
+  }
+  .content {
+    padding-bottom: 150px;
   }
 }
