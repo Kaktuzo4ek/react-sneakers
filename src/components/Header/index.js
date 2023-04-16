@@ -16,8 +16,8 @@ function Header({ onClickCart, onClickNav }) {
   const navigate = useNavigate();
 
   return (
-    <header className="d-flex justify-between align-center p-40">
-      <div className={styles.headerLeft} onClick={() => navigate("")}>
+    <header className={styles.header}>
+      <div className={styles.headerLeft} onClick={() => navigate("/")}>
         <img width={40} height={40} src={logoIcon} alt="logo" />
         <div>
           <h3 className="text-uppercase">React Sneakers</h3>

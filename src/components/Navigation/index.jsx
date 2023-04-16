@@ -23,6 +23,11 @@ function Navigation({ onClose, opened, onClickCart }) {
     navigate("/orders");
   };
 
+  const navigateToHome = () => {
+    onClose();
+    navigate("/");
+  };
+
   return (
     <div className={classNames(styles.navWrapper, { [styles.open]: opened })}>
       <div className={styles.close}>
@@ -30,6 +35,7 @@ function Navigation({ onClose, opened, onClickCart }) {
       </div>
       <div className={styles.navigation}>
         <h1 onClick={navigateToCart}>Корзина</h1>
+        <h1 onClick={navigateToHome}>Всі кросівки</h1>
         <h1 onClick={navigateToFavorites}>Мої закладки</h1>
         <h1 onClick={navigateToOrders}>Мої замовлення</h1>
       </div>

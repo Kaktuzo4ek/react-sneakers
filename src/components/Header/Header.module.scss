@@ -1,4 +1,8 @@
-header {
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px;
   border-bottom: 1px solid #eaeaea;
 
   .headerLeft {
@@ -32,6 +36,10 @@ header {
 }
 
 @media screen and (max-width: 600px) {
+  .header {
+    padding: 25px 40px !important;
+  }
+
   ul.navigation {
     display: none !important;
   }

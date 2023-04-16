@@ -100,11 +100,11 @@ function Cart({ onClose, onRemove, items = [], opened }) {
                 <div></div>
                 <b>{totalPrice} грн. </b>
               </li>
-              <li>
-                <span>Податок 5%:</span>
+              {/* <li>
+                <span>На ЗСУ 5%:</span>
                 <div></div>
-                <b>{(totalPrice / 100) * 5} грн. </b>
-              </li>
+                <b>{Math.round((totalPrice / 100) * 5)} грн. </b>
+              </li> */}
             </ul>
             <button
               disabled={isLoading}
